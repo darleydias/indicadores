@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
+    <script src="./funcoes.js"></script>
 
     <title>Painel Produção</title>
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
@@ -163,7 +163,7 @@ function montaMeses(){
                             semana4.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;')
                             semana4.classList.add("semana");
                             var semanas =[];
-
+                            
                             semanas = retornaValoresMes("2023",10);
 
                             var ValorMes1 = document.createTextNode("4");
@@ -206,29 +206,19 @@ function retornaValoresMes(ano,mes){
            data: JSON.stringify({"ano":ano,"mes":mes}),
            contentType: 'application/json; charset=utf-8',
            success: function (result) {
-           
-           var anos=document.querySelector('#anos');
+            var anos=document.querySelector('#anos');
+            console.log(result.nrSemQuant[0].regSemana);
 
-           let clientesNovos = Object.keys(result);
-            clientesNovos.forEach(function(clientesNovos){
-                console.log(clientesNovos);
-        
-        
-            });
-           
-            // for(const chave in result) {
-            //     if (result.hasOwnProperty(chave)) {
-            //          console.log(`${chave}: ${param_value}`);
-  
-                    // console.log(typeof(sema.ano));
-                    // var txtDiv=document.createTextNode(sema.ano); // valor medido
-                    // var ano = document.createElement("div");
-                    // ano.appendChild(txtDiv);
-                    // ano.classList.add("ano1");
-                    // anos.appendChild(ano);
-                    //montaMeses();
-            //     }
-            // }
+            for(var i=0;result.length;i++) {
+            //     // var txtDiv = document.createTextNode(r); // valor medido
+                console.log(result[i]);
+            //     // var ano = document.createElement("div");
+            //     // ano.appendChild(txtDiv);
+            //     // ano.classList.add("ano1");
+            //     // anos.appendChild(ano);
+            //     //montaMeses();
+                
+            };
            },
            error: function (error) {
                console.log(error);
@@ -245,7 +235,6 @@ function pegaDia(days){
 
 // DIA INICIAL DA PRODUÇÃO
 // var data = new Date(producaoJson.inicio);
-var data = new Date();
 var dia = pegaDia(data);
 
 // HOJE
@@ -287,7 +276,6 @@ for(i=0; i<quantProximas ;i++){
 
 dates.forEach((element) => {
     var cadaDia = document.createElement("div");
-    var containerDias = document.createElement("div");
     var diaMes =new Date(element);
     diaMes = diaMes.getDate();
     cadaDia.innerHTML=diaMes;
@@ -299,7 +287,6 @@ dates.forEach((element) => {
 
 proximas.forEach((element) => {
     var cadaDia = document.createElement("div");
-    var containerDias = document.createElement("div");
     var diaMes =new Date(element);
     diaMes = diaMes.getDate();
     cadaDia.innerHTML=diaMes;
