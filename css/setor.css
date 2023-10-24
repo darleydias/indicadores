@@ -1,0 +1,263 @@
+
+.setores{
+    display: flex;
+    flex-flow:row wrap;
+    top: 380px;
+}
+.titulo__setor{
+    font-size: 20px;
+}
+.setor1{/*Almoxarifado  */
+    display: flex;
+    flex-flow:column wrap;
+    height: 6px;
+    background-color:#DB6363;
+    margin: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+.setor2{/*Identificação*/
+    height: 6px;
+    background-color: #FF914D;
+    margin: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+.setor3{/*Mecânica*/
+    height: 6px;
+    background-color:  #3CBF80;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+.setor4{/*Elétrica*/
+    height: 6px;
+    background-color: #7F67AF;
+    margin: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+.setor5{/*Finalização*/
+    height: 6px;
+    background-color: #FAFAFA;
+    margin: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+.setor6{ /*Eletrica*/
+    height: 6px;
+    background-color: #3571CD;
+    margin: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+
+/* HORAS DE TRABALHO */
+
+.setor7{/*Almoxarifado  */
+    height: 6px;
+    background-color: #DB6363;
+    margin: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+.setor8{/*Identificação*/
+    height: 6px;
+    background-color: #FF914D;
+    margin: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+.setor9{/*Mecânica*/
+    height: 6px;
+    background-color: #3CBF80;
+    margin: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+.setor10{/*Elétrica*/
+    height: 6px;
+    background-color: #7F67AF;
+    margin: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+.setor11{/*Finalização*/
+    height: 6px;
+    background-color:#FAFAFA;
+    margin: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+.setor12{ /*Expediente*/
+    height: 6px;
+    background-color:#3571CD;
+    margin: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+.legenda{
+    height: 6px;
+    width: 6px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-right: 20;
+    text-align: center; 
+    background-color: #DB6363;
+}
+.legenda1{
+    height: 6px;
+    width: 6px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-right: 150px;
+    background-color: #FF914D;
+}
+.legenda2{
+    height: 6px;
+    width: 6px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-right: 20px;
+    background-color:#3CBF80;
+}
+.legenda3{
+    height: 6px;
+    width: 6px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-right: 20px;
+    background-color:#7F67AF ;
+}
+.legenda4{
+    height: 6px;
+    width: 6px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-right: 20px;
+    background-color: #FAFAFA;
+}
+.legenda5{
+    height: 6px;
+    width: 6px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-right: 20;
+    background-color:#3571CD ;
+    text-align: center;
+    
+}
+
+.legenda6{
+    height: 6px;
+    width: 6px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-right: 20;
+    background-color:#95D5ED ;
+    text-align: center;
+    
+}
+.diaOn{
+    height: 20px;
+    width: 20px;
+    background-color: #091a32;
+    margin: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 30px;
+}
+.dias{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.dia{
+    height: 20px;
+    width: 20px;
+    background-color: #3970BE;
+    margin: 10px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 30px;
+}
+.xp{
+    display: flex;
+    position: relative;
+    left: 30px;
+    top: -10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px
+}
+

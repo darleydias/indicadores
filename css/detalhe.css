@@ -1,0 +1,234 @@
+:root{
+    --cor-bg-medio: rgba(0,0,0,.8);
+    --cor-bg-claro: rgba(0,0,0,.15);
+    --cor-bg-escuro: rgba(0,0,0,.5);
+    --cor-bg-preto: rgba(0,0,0,1);
+    --cor-texto-servico:rgba(255,255,255,1);
+    --cor-bg-fundo:rgba(43,50,72,1);
+    --cor-ln-amarelo: #ffd20c;
+    --cor-bola-tempo:rgb(60, 91, 101,1);
+
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+.dt-card0{
+    position: absolute;
+    z-index: 3;
+    background-color: var(--cor-bg-preto);
+    width: 2148px;
+    height: 88%;
+    gap: 60px;
+    font-size: 30px;
+    color: var(--cor-texto-servico);
+    border-radius:25px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 1px solid var(--cor-ln-amarelo);
+    animation: fadeInAnimation ease 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.dt-main-card{
+    display: flex;
+    flex-flow:column nowrap;
+    color: var(--cor-texto-servico);
+    /* justify-content: space-between; */
+
+
+}
+.dt-linha{
+    display: flex;
+    flex-flow:row wrap;
+    color: var(--cor-texto-servico);
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.561);;
+}
+
+.dt-equipe{
+    width: 200px;
+    padding-left: 20px;
+    margin-top: 0px;
+}
+.dt-fotos{
+    height: 150px;
+    width: 480px;
+
+}
+.dt-foto1 {
+    width: 92px; 
+    height: 90px;
+    border-radius:30px;
+    left: 20px;
+    top: 20px;
+    z-index: 0;
+    display: block;
+    position: relative;
+}
+
+.dt-foto2 {
+
+    width: 92px; 
+    height: 90px;
+    border-radius:30px;
+    left: 25px;
+    top: -60px;
+    z-index: 2;
+
+    display: block;
+    position: relative;
+
+}
+
+.dt-foto3 {
+
+    width: 92px; 
+    height: 90px;
+    border-radius:30px;
+    left: 40px;
+    top: -140px;
+    z-index: 2;
+    position: relative;
+}
+
+.dt-nomes{
+    height: 150px;
+    width: 480px;
+
+    line-height: 1.5;
+    padding-left: 20px;
+    text-align:justify;
+}
+
+.dt-texto-header{
+    padding: 5px;
+    background-color: rgba(151, 149, 149, 0.283);
+
+}
+.dt-servicos{
+    width: 900px;
+    margin-top: 0px;
+    line-height: 1.5;
+    text-align:justify;
+    padding-left: 0px;
+    margin-right: 30px;
+}
+.dt-trabalhos{
+    width: 700px;
+    margin-top: 0px;
+    text-align:justify;
+    line-height: 1.5;
+    padding-left: 0px;
+    padding-right: 30px;
+}
+.dt-titulo{
+    text-align:center;
+    padding: 5px;
+    border  : 1px solid rgb(176, 178, 183); 
+    
+}
+.dt-lista-fr{
+    width: 300px;
+    margin-top: 0px;
+    text-align:justify;
+    line-height: 1.5;
+    padding-left: 20px;
+
+}
+.dt__lista__ql{
+    width: 500px;
+    margin-top: 0px;
+    text-align:justify;
+    line-height: 1.5;
+    padding-left: 20px;
+
+}
+.dt-lista-tb{
+    width: 480px;
+    margin-top: 0px;
+    text-align:justify;
+    line-height: 1.5;
+    padding-left: 0px;
+
+}
+.dt-lista-sv{
+    width: 1000 px;
+    margin-top: 0px;
+    text-align:justify;
+    line-height: 1.5;
+    padding-left: 0px;
+
+}
+.dt-relatorio{
+    width: 1024px;
+    height: 330px;
+    margin-top: 0px;
+    text-align:justify;
+    line-height: 1.5;
+    padding-left: 0px;
+    border: 1px solid var(--cor-ln-amarelo);
+    overflow-y: scroll;
+}
+.dt-cabecalho{
+    justify-content: center;
+    padding: 5px;
+
+}
+.dt-insumos{
+    width: 680px;
+    margin-top: 0px;
+    text-align:justify;
+    line-height: 1.5;
+    padding-left: 20px;
+    margin-right: 30px;
+}
+.dv-linha__servico{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(43,50,72,1); 
+    width: 1024px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align:justify;
+    align-items: start;
+}
+.dv-linha__servico:hover{
+    border: 1px solid var(--cor-ln-amarelo);
+}
+.dt-atv{
+    background-color: rgba(137, 43, 226, 0.257);
+    border-radius: 10px;
+}
+.dt-pausa{
+    background-color: rgba(226, 43, 76, 0.232);
+    border-radius: 10px;
+}
+li {
+    list-style-type: circle;
+}
+.dt-cabecalho-ins{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 10px;
+    font-size: 30px;
+    line-height: 1.5;
+} 
+.dt-corpo-ins{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+} 
+.dt-ferramentas{
+    width: 300px;
+    padding-left: 20px;
+    margin-top: 0px;
+}

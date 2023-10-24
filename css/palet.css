@@ -1,0 +1,163 @@
+.producao{
+    margin-top: 60px;
+    margin-right:0px;
+    width: 1224px;
+    display: flex;
+    flex-flow:row wrap;
+    color: var(--cor-texto-servico);
+    align-items: justify;
+    justify-content: space-between;
+    /* border: 1px solid rgba(201, 217, 28, 0.4);  */
+}
+.base{
+    width: 160px;
+    height: 30px;
+    border: 1px solid rgba(0, 0, 255, 0.446);
+    margin-top: 0px;
+    background-color: rgba(165, 42, 42, 0.508);
+}
+.palet{
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(0, 0, 255, 0.293);
+    margin: 0px;
+}
+.peca{
+    display: flex;
+    flex-flow:column;
+    color: var(--cor-texto-servico);
+    margin-left: 10px;
+
+}
+.combo{
+    display: flex;
+    flex-flow:row wrap;
+}
+.paletOnInicio{
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    border: 2px solid rgba(239, 28, 13, 0.564);
+    background-size:80px 80px;
+    background-repeat: no-repeat;
+    background-position: bottom,bottom; 
+}
+
+.paletOnAlmox{
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    border: 1px solid rgba(132, 241, 159, 0.858);
+    background-image: url("../img/enchePalet.png");
+    background-size:80px 80px;
+    background-repeat: no-repeat;
+    background-position: bottom,bottom; 
+}
+.paletOnIdChega{
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    border: 1px solid rgba(132, 241, 159, 0.858);
+    background-image: url("../img/enchePalet.png");
+    background-size:80px 76px;
+    background-repeat: no-repeat;
+    background-position: bottom,bottom; 
+}
+.paletOnId{
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    border: 1px solid rgba(132, 241, 159, 0.858);
+    background-image: url("../img/enchePalet.png");
+    background-size:80px 14px;
+    background-repeat: no-repeat;
+    background-position: bottom,bottom; 
+}
+.paletOnMecChega{
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    border: 1px solid rgba(132, 241, 159, 0.858);
+    background-image: url("../img/enchePalet.png");
+    background-size:80px 65px;
+    background-repeat: no-repeat;
+    background-position: bottom,bottom; 
+    
+}
+.paletOnMec{
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    border: 1px solid rgba(132, 241, 159, 0.858);
+    background-image: url("../img/enchePalet.png");
+    background-size:80px 35px;
+    background-repeat: no-repeat;
+    background-position: bottom,bottom; 
+    
+}
+.paletOnEletricaChega{
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    border: 1px solid rgba(132, 241, 159, 0.858);
+    background-image: url("../img/enchePalet.png");
+    background-size:80px 75px;
+    background-repeat: no-repeat;
+    background-position: bottom,bottom; 
+}
+.paletOnEletrica{
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    border: 1px solid rgba(132, 241, 159, 0.858);
+    background-image: url("../img/enchePalet.png");
+    background-size:80px 15px;
+    background-repeat: no-repeat;
+    background-position: bottom,bottom; 
+}
+.paletOnFimChega{
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    border: 1px solid rgba(132, 241, 159, 0.858);
+    background-image: url("../img/enchePalet.png");
+    background-size:80px 70px;
+    background-repeat: no-repeat;
+    background-position: bottom,bottom; 
+}
+.paletOnFim{
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    border: 1px solid rgba(132, 241, 159, 0.858);
+    background-image: url("../img/enchePalet.png");
+    background-size:80px 30px;
+    background-repeat: no-repeat;
+    background-position: bottom,bottom; 
+}
+.paletOnExpedChega{
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    border: 1px solid rgba(132, 241, 159, 0.858);
+    background-image: url("../img/enchePalet.png");
+    background-size:80px 25px;
+    background-repeat: no-repeat;
+    background-position: bottom,bottom; 
+}
+.paletOnExped{
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+    border: 1px solid rgba(132, 241, 159, 0.858);
+    background-image: url("../img/enchePalet.png");
+    background-size:80px 75px;
+    background-repeat: no-repeat;
+    background-position: bottom,bottom; 
+}
+.reseta{
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(0, 0, 255, 0.293);
+    margin: 0px;
+}

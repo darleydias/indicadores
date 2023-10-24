@@ -1,0 +1,269 @@
+*,
+*::before,
+*::after {
+    --azul-escuro: #154580;
+    --azul-medio: #3970BE;
+    --azul-claro: #E5F1FF;
+    --cinza-texto: #444444;
+    --cinza-claro: #ECECEC;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    background-color: var(--azul-claro);
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    font-size: 14px;
+    color: white;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* CABEÇALHO */
+
+.cabecalho__container {
+    background-color: white;
+    height: 90px;
+    width: 100%;
+    padding: 0 25px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+tbody tr:nth-child(odd) {
+    background-color: #cccccc56;
+}
+table tr{
+    cursor: pointer;
+}
+
+.logo__item {
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    padding: 40px 120px;
+    cursor: pointer;
+}
+
+
+.titulo-cabecalho {
+    color: #010000;
+    font-weight: bold;
+    font-size: large;
+    padding: 0px 0 0px 0;
+    padding-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.anos {
+    border-top: #154580 1px solid;
+    border-radius: 5px;
+    color: #010000;
+    font-weight: bold;
+    font-size: large;
+    padding: 40px 10px 20px 20;
+    margin: 0px;
+    margin-top: 0px;
+    height: 1200px;
+    width: 5%;
+    justify-content: center;
+    align-items: center;
+}
+.ano1 {
+    display: flex;
+    border-radius: 5px;
+    color: #010000;
+    font-weight: bold;
+    font-size: large;
+    padding: 40px;
+    height: 1254px;
+    justify-content: center;
+    align-items: center;
+    background-color: #44444496 ;
+    margin-bottom: 5px;
+    margin-right: 50px;
+}
+.ano2 {
+    display: flex;
+    border-radius: 5px;
+    color: #010000;
+    font-weight: bold;
+    font-size: large;
+    padding: 40px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #44444442 ;
+    margin-bottom: 5px;
+    
+}
+.meses {
+    border-radius: 5px;
+    color: #010000;
+    font-weight: bold;
+    font-size: large;
+    padding: 20px 10px 20px 20;
+    margin: 5px;
+    height: 96;
+    width: 5%;
+    justify-content: center;
+    align-items: center;
+}
+.mes1 {
+
+    display: flex;
+    border-radius: 5px;
+    color: #010000;
+    font-weight: bold;
+    font-size: large;
+    padding: 40px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafab3 ;
+    width: 8%;
+    margin-bottom: 5px;
+}
+.mes2 {
+    display: flex;
+    border-radius: 5px;
+    color: #010000;
+    font-weight: bold;
+    font-size: large;
+    padding: 40px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7eeee46 ;
+    width: 8%;
+    margin-bottom: 5px;
+}
+.semana {
+    border-radius: 5px;
+    color: #010000;
+    font-weight: bold;
+    font-size: large;
+    padding: 20px 10px 20px 20;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 5px;
+    height: 100px;
+    width: 22%;
+    opacity: 0.7;
+}
+
+/* RODAPÉ */
+
+.rodape__container {
+    width: 100%;
+    height: 875px;
+    color: var(--cinza-texto);
+    line-height: 1.5;
+    font-size: 16px;
+    background-color: white;
+}
+
+.rodape__titulo {
+    color: var(--azul-medio);
+    font-weight: bold;
+    padding: 10px 0 20px 0;
+}
+
+@media(min-width: 834px) {
+
+    body {
+        height: 100vh;
+    }
+
+    /* ESTILOS DO MENU LATERAL */
+
+    .menu__container {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .menu__lista {
+        padding-top: 15px;
+    }
+
+    .menu__lista li {
+        width: 100%;
+    }
+
+    /* ESTILOS DA SECAO SUPERIOR */
+
+    .superior__secao__container {
+        border-top: var(--azul-medio) 1px solid;
+        border-bottom: var(--azul-medio) 1px solid;
+        width: auto;
+        left: 82px;
+    }
+
+    /*ESTILOS SEÇÃO VÍDEOS */
+
+    .videos__container {
+        padding-left: 90px;
+        padding-right: 17px;
+    }
+
+    /* .videos__item:hover {
+        transform: scale(1.3);
+    } */
+
+    /* ESTILOS RODAPÉ */
+
+    .rodape__container {
+        height: 420px;
+        padding-left: 74px;
+    }
+
+}
+
+@media(min-width: 1440px) {
+
+    /* SEÇÃO SUPERIOR */
+
+    .superior__secao__container {
+        left: 247px;
+    }
+
+    /* ESTILOS DO MENU LATERAL */
+
+    .menu__lista {
+        border-bottom: 1.5px solid var(--azul-medio);
+    }
+
+    /* ESTILOS VIDEOS */
+
+    .videos__container {
+        padding-right: 10px;
+        padding-left: 248px;
+    }
+
+    /* ESTILOS RODAPÉ */
+
+    .rodape__container {
+        padding-left: 240px;
+        height: 225px;
+    }
+    label {
+        color: #B4886B;
+        font-weight: bold;
+        display: block;
+      }
+      label:after { content: ": " }
+    
+      .button2 {
+        background-color: #e6e3ed84;
+        border-radius: 10px;    
+    } /* Blue */
+
+}
