@@ -55,13 +55,7 @@
 
             <div style="width: 95%;">
                 <div id="meses" style="display: flex; margin-left: 10px; flex-flow: column;width: 100%;">
-                        <!-- <div style="display: flex; flex-flow: row;">
-                            <div id="202301" class="mes1">Janeiro</div>
-                            <div class="semana" style="font-size: 28px;background-image: url('./img/alertaLaranja.png');background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;">3</div>
-                            <div class="semana" style="font-size: 28px;background-image: url('./img/conclusao.png');background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:30%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;">4</div>
-                            <div class="semana" style="font-size: 28px;background-image: url('./img/alertaVermelho.png');background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:10%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;">1</div>
-                            <div class="semana" style="font-size: 28px;background-image: url('./img/conclusao.png');background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:100%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;">7</div>
-                        </div> -->
+
                 </div>
             </div>
            </div>
@@ -138,9 +132,9 @@ buscaAnos();
 
 // MONTAGEM INDICADORES
 
-function montaMeses(){
+function montaMeses(ano){
 
-     for (var i = 1; i< 13;i++){ 
+     for (var i = 12; i>0;i--){ 
         var txtMes="";    
         if(i==1){txtMes="Janeiro"};if(i==2){txtMes="Fevereiro"};if(i==3){txtMes="Marco"};
         if(i==4){txtMes="Abril"};if(i==5){txtMes="Maio"};if(i==6){txtMes="Junho"};
@@ -154,28 +148,44 @@ function montaMeses(){
                             var semana2 = document.createElement("div");
                             var semana3 = document.createElement("div");
                             var semana4 = document.createElement("div");
-                            semana1.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;')
+
+                           
+                            semana1.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;');
                             semana1.classList.add("semana");
-                            semana2.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;')
+                            semana1.setAttribute('id','1_'+ano+'_'+i);
+                       
+                            semana2.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;');
                             semana2.classList.add("semana");
-                            semana3.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;')
+                            semana2.setAttribute('id','2_'+ano+'_'+i);
+
+                           
+                            semana3.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;');
                             semana3.classList.add("semana");
-                            semana4.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;')
+                            semana3.setAttribute('id','3_'+ano+'_'+i);
+
+                        
+                            semana4.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;');
                             semana4.classList.add("semana");
+                            semana4.setAttribute('id','4_'+ano+'_'+i);
+
                             var semanas =[];
                             
-                            semanas = retornaValoresMes("2023",10);
+                            var ValorMes1 = document.createTextNode("");
+                            var ValorMes2 = document.createTextNode("");
+                            var ValorMes3 = document.createTextNode("");
+                            var ValorMes4 = document.createTextNode("");
 
-                            var ValorMes1 = document.createTextNode("4");
-                            var ValorMes2 = document.createTextNode("4");
-                            var ValorMes3 = document.createTextNode("4");
-                            var ValorMes4 = document.createTextNode("4");
+                            semanas = retornaValoresMes(ano,i);
+                            // #############
 
                             semana1.appendChild(ValorMes1);
                             semana1.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:95%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%')
                             semana2.appendChild(ValorMes2);
+                            semana2.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:95%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%')
                             semana3.appendChild(ValorMes3);
+                            semana3.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:95%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%')
                             semana4.appendChild(ValorMes4);
+                            semana4.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:95%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%')
                             
                             var mesDiv = document.createElement("div");
                             mesDiv.appendChild(nomeMes);
@@ -206,18 +216,18 @@ function retornaValoresMes(ano,mes){
            data: JSON.stringify({"ano":ano,"mes":mes}),
            contentType: 'application/json; charset=utf-8',
            success: function (result) {
-            var anos=document.querySelector('#anos');
-            console.log(result.nrSemQuant[0].regSemana);
+           var anos=document.querySelector('#anos');
+           
 
-            for(var i=0;result.length;i++) {
-            //     // var txtDiv = document.createTextNode(r); // valor medido
-                console.log(result[i]);
-            //     // var ano = document.createElement("div");
-            //     // ano.appendChild(txtDiv);
-            //     // ano.classList.add("ano1");
-            //     // anos.appendChild(ano);
-            //     //montaMeses();
-                
+            for(var i=0;i<result.length;i++) {
+                var txtDiv = document.createTextNode(result[i].regSemana); // valor medido
+                // var ano = document.createElement("div");
+                // ano.appendChild(txtDiv);
+                // ano.classList.add("ano1");
+                // anos.appendChild(ano);
+                if(document.getElementById(parseInt(i+1)+'_'+ano+'_'+mes)!=null){
+                    document.getElementById(parseInt(i+1)+'_'+ano+'_'+mes).appendChild(txtDiv);
+                }
             };
            },
            error: function (error) {
