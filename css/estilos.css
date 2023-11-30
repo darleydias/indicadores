@@ -4,7 +4,7 @@
     --azul-escuro: #154580;
     --azul-medio: #3970BE;
     --azul-claro: #E5F1FF;
-    --cinza-texto: #444444;
+    --cinza-texto: #BFBFBF;
     --cinza-claro: #ECECEC;
     box-sizing: border-box;
 }
@@ -40,7 +40,7 @@ table {
     padding: 8px;
   }
 tbody tr:nth-child(odd) {
-    background-color: #cccccc56;
+    background-color: #BFBFBF;
 }
 table tr{
     cursor: pointer;
@@ -64,7 +64,6 @@ table tr{
     align-items: center;
 }
 .anos {
-    border-top: #154580 1px solid;
     border-radius: 5px;
     color: #010000;
     font-weight: bold;
@@ -72,37 +71,10 @@ table tr{
     padding: 40px 10px 20px 20;
     margin: 0px;
     margin-top: 0px;
-    height: 1200px;
-    width: 5%;
+    height: 100px;
+    width: 100%;
     justify-content: center;
     align-items: center;
-}
-.ano1 {
-    display: flex;
-    border-radius: 5px;
-    color: #010000;
-    font-weight: bold;
-    font-size: large;
-    padding: 40px;
-    height: 1254px;
-    justify-content: center;
-    align-items: center;
-    background-color: #44444496 ;
-    margin-bottom: 5px;
-    margin-right: 50px;
-}
-.ano2 {
-    display: flex;
-    border-radius: 5px;
-    color: #010000;
-    font-weight: bold;
-    font-size: large;
-    padding: 40px;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: #44444442 ;
-    margin-bottom: 5px;
     
 }
 .meses {
@@ -112,10 +84,11 @@ table tr{
     font-size: large;
     padding: 20px 10px 20px 20;
     margin: 5px;
-    height: 96;
+    height: 96px;
     width: 5%;
     justify-content: center;
     align-items: center;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .mes1 {
 
@@ -156,6 +129,19 @@ table tr{
     margin-left: 0px;
     margin-bottom: 5px;
     height: 100px;
+    width: 22%;
+    opacity: 0.7;
+}
+.mesAtual {
+    border-radius: 5px;
+    color: #010000;
+    font-weight: bold;
+    font-size: large;
+    padding: 20px 10px 20px 20;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 5px;
+    height: 300px;
     width: 22%;
     opacity: 0.7;
 }
@@ -201,8 +187,7 @@ table tr{
     /* ESTILOS DA SECAO SUPERIOR */
 
     .superior__secao__container {
-        border-top: var(--azul-medio) 1px solid;
-        border-bottom: var(--azul-medio) 1px solid;
+
         width: auto;
         left: 82px;
     }
@@ -236,12 +221,6 @@ table tr{
     }
 
     /* ESTILOS DO MENU LATERAL */
-
-    .menu__lista {
-        border-bottom: 1.5px solid var(--azul-medio);
-    }
-
-    /* ESTILOS VIDEOS */
 
     .videos__container {
         padding-right: 10px;

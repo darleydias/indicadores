@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+      <title>
+      Chart
+      </title>
+      <link rel="stylesheet" href="index.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+      <nav>
+        <a href="http://iamsteve.me/blog">Blog</a>
+        <a href="http://iamsteve.me/portfolio">Portfolio</a>
+        <a href="http://iamsteve.me/downloads">Downloads</a>
+        <a href="http://iamsteve.me/about">About</a>
+        <a href="http://iamsteve.me/contact">Contact</a>
+      </nav>
+ </head>
+ <body>
+  <div>
+  <div style="width: 50%;margin: 100px;">
+    <canvas id="myChart"></canvas>
+  </div>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</htm/>

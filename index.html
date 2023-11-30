@@ -7,20 +7,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/estilos.css">
-    <link rel="stylesheet" href="./css/detalhe.css">
     <link rel="stylesheet" href="./css/painel.css">
-    <link rel="stylesheet" href="./css/modal.css">
- 
+    <script type="text/javascript" src="./js/funcao.js"></script>
+
+    <!-- CONTROLLERS -->
+
+    <script type="text/javascript" src="./controller/conquistadosController.js"></script>
+    <script type="text/javascript" src="./controller/ticketController.js"></script>
+
+
+    <!-- FIM CONTROLLERS -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js" integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdn.es.gov.br/scripts/jquery/jquery-cookie/1.3.1/jquery.cookie.min.js"/>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js" integrity="sha256-xI/qyl9vpwWFOXz7+x/9WkG5j/SVnSw21viy8fWwbeE=" crossorigin="anonymous"></script>
+
     <script src="./funcoes.js"></script>
+    <script src="./js/transiction.min.js"></script>
 
     <title>Painel Produção</title>
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js" integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 <body>
 
@@ -28,7 +47,8 @@
     <header style="position: relative; z-index: 999;">
         <nav class="cabecalho__container">
            <a class="logo__item" href="./portfolio.html"></a>
-            <div class="cabecalho_pesquisar_item">
+
+             <div class="cabecalho_pesquisar_item">
                 <form action="">
                     <input type="search" placeholder="Pesquisar" id="pesquisar" class="pesquisar__input">
                     <label for="pesquisar" class="pesquisar__label"></label>
@@ -37,37 +57,134 @@
             </div>
         </nav>
     </header>
-
-    
-    <div id="pai" style="display: flex;flex-flow: column; width: 100%;margin: 0px; height: 100%;margin-top: 100px;">
-        <div id="cabecalho_tabela" style="position:fixed; display: flex;flex-flow: row; width: 100%;height:40px;margin: 0px ; margin-left: 5px; margin-top:-10px;padding:0px;padding-left: 0px; background-color: rgba(195, 188, 63, 0.708);">
-            <div id="ano" class="titulo-cabecalho" style="width: 5%;margin-right: 10px;">Ano</div>
-            <div id="mes" class="titulo-cabecalho" style="width: 5%;">Mês</div>
-            <div id="s1" class="titulo-cabecalho" style="width: 22%;">Semana 1</div>
-            <div id="s2" class="titulo-cabecalho" style="width: 22%;">Semana 2</div>
-            <div id="s3" class="titulo-cabecalho" style="width: 22%;">Semana 3</div>
-            <div id="s4" class="titulo-cabecalho" style="width: 22%;">Semana 4</div>
-        </div>
-        <div class="envelope" style="display:flex;flex-flow:row;width:100%;margin-top:32px;margin-left: 5px;">
-
-            <div id="anos" class="anos" style="width: 5%; height: 100%; display: flex;flex-flow: column;justify-content:left; align-items: start;margin-right: -10px;">
-            </div>
-
-            <div style="width: 95%;">
-                <div id="meses" style="display: flex; margin-left: 10px; flex-flow: column;width: 100%;">
-
+    <div id="avo" style="display: flex; flex-flow: column;";>
+        <div id="pai" style="display: flex; flex-flow: row;" ondragover="allowDrop(event)" ondrop="drop(event)" >
+              <div style=" display:flex;flex-flow: row; margin-left:-100%;margin-bottom:0px;width: 100%;height: 100%;padding-left: 200px;padding-right: 200px; padding-bottom: 50%; border-radius: 0px;margin-top: 130px;">
+                <div style="display:flex; width: 50%;margin: 100px;">
+                    <canvas id="myChart"></canvas>
                 </div>
             </div>
-           </div>
+            <div style="display: flex;flex-flow: column; width: 100%;margin: -5px; height: 100%;margin-top: 100px;">
+                <div id="cabecalho_tabela" style="position:fixed; display: flex;flex-flow: row; width: 100%;height:40px;margin: 0px ; margin-left: 5px; margin-top:-10px;padding:0px;padding-left: 0px; background-color: rgba(195, 188, 63, 0.708);">
+                    <div id="mes" class="titulo-cabecalho" style="width: 5%;">Mês</div>
+                    <div id="s1" class="titulo-cabecalho" style="width: 22%;">Semana 1</div>
+                    <div id="s2" class="titulo-cabecalho" style="width: 22%;">Semana 2</div>
+                    <div id="s3" class="titulo-cabecalho" style="width: 22%;">Semana 3</div>
+                    <div id="s4" class="titulo-cabecalho" style="width: 22%;">Semana 4</div>
+                </div>
+                <div id="envelopeFooter" style="color:black;display:flex;flex-flow:row;justify-content: center;align-items: center; margin: 0px;padding:0px; width:100%;margin-top:34px;margin-left: 5px;">
+                    <div style="display: flex;background-color: rgb(114, 110, 110); opacity: 0.5; border-radius:20px;width:16px;height: 16px;"></div>    
+                    <div style="display: flex;background-color: rgb(128, 120, 120); border-radius:20px;width:16px;height: 16px;margin-left: 20px;"></div>    
+                </div>
+                <div id="envelope" class="envelope" style="display:flex;flex-flow:column;width:100%;margin-top:0px;margin-left:5px;margin-top:-40px;"></div>
+                
 
-        </div>
-       
 
-    </div>
+            </div>
+            <!-- menus suspensos -->
+            <div style="display:flex;flex-flow: column;position:fixed;z-index:999;top:20%;left:90%;right:0px">
+            <div id="1" style="color: antiquewhite; display: flex; width: 80px;height: 80px; border-radius: 40px; background-color: rgba(0, 0, 0, 0.444);margin-bottom: 10px; justify-content: center;align-items: center;" draggable="true" ondragstart="drag(event)" >
+                <span class="material-symbols-outlined">
+                    trophy
+                    </span> 
+            </div>
+            <div id="2" style="display: flex;width: 80px;height: 80px;border-radius: 40px; background-color: rgba(0, 0, 0, 0.444); justify-content: center;align-items: center;margin-bottom: 10px;" draggable="true" ondragstart="drag(event  )">
+                <span class="material-symbols-outlined">
+                    tablet_android
+                    </span>
+            </div>
+            <div id="3" style="display: flex;width: 80px;height: 80px;border-radius: 40px; background-color: rgba(0, 0, 0, 0.444); justify-content: center;align-items: center;margin-bottom: 10px;" draggable="true" ondragstart="drag(event)">
+                <span class="material-symbols-outlined">
+                    precision_manufacturing
+                    </span>
+            </div>
+            <div id="4" style="display: flex;width: 80px;height: 80px;border-radius: 40px; background-color: rgba(0, 0, 0, 0.444); justify-content: center;align-items: center;margin-bottom: 10px;" draggable="true" ondragstart="drag(event)">
+                <span class="material-symbols-outlined">
+                    battery_change
+                    </span>
+            </div>
+            <div id="5" style="display: flex;width: 80px;height: 80px;border-radius: 40px; background-color: rgba(0, 0, 0, 0.444); justify-content: center;align-items: center;margin-bottom: 10px;" draggable="true" ondragstart="drag(event)">
+                <span class="material-symbols-outlined">
+                    settings_input_hdmi
+                    </span>
+            </div>
+
+
+            
+
+        </div>  
+    </div> 
 
 
 <!-- ########################################### JavaScript ######################################################## -->
 <script>
+
+// DRAG AND DROP
+// ############################
+var salvaCookie = function() {
+  var ordem = $('#drop-esquerda').sortable('toArray');
+  ordem += '|' + $('#drop-direita').sortable('toArray');
+  $.cookie('df_draganddrop', ordem);
+};
+function allowDrop(ev) {
+      ev.preventDefault();
+    }
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+      $(this).data('x', ev.target.id)
+    }
+    function drop(ev,ui) {
+    //    alert($(this).data('x'));
+       buscaAnos($(this).data('x'));
+    }
+    </script>
+<script>
+
+function rola(obj){
+    document.getElementById("setaD").setAttribute('style','visibility:hidden');
+    document.getElementById("setaE").setAttribute('style','visibility:visible');
+    transition.begin(obj, {property: "transform", from: "translateX(100%)", to:"translateX(0%)", duration:"1s", timingfunction:"linear"});
+}
+function volta(obj){
+    // document.getElementById("setaE").setAttribute('style','visibility:hidden');
+    document.getElementById("setaD").setAttribute('style','visibility:visible');
+    transition.begin(obj, {property: "transform", from: "translateX(0%)", to:"translateX(100%)", duration:"1s", timingfunction:"linear"});
+}
+function comeca(obj){
+    transition.begin(obj, {property: "transform", from: "translateX(10%)", to:"translateX(0%)", duration:"1s", timingfunction:"linear"});
+}
+function aumenta(obj){
+ 
+    obj.setAttribute('style','display:flex; flex-flow: row');
+}       
+const date =new Date();
+const today = date.getDate();
+const currentMonth = date.getMonth() + 1; 
+
+// GRÁFICO
+const ctx = document.getElementById('myChart');
+  
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+// GRÁFICO FIM
+
 
 var opNum="";
 
@@ -97,14 +214,13 @@ function queryString(parameter) {
         }
 var variavel = queryString("op");
 
+// MONTA CALENDÁRIO
 
-// DADOS BASICOS
-
-
-function buscaAnos(){
-
+function buscaAnos(indicador){
    $.ajax({
-           url: "http://localhost:8000/api/omie/oportunidade/ano",
+            // Anos que têm oportunidade cadastradas
+
+           url: "http://192.168.0.11:8000/api/omie/oportunidade/ano",
            type: 'GET',
            dataType: 'json',
            headers: {
@@ -112,15 +228,52 @@ function buscaAnos(){
            },
            contentType: 'application/json; charset=utf-8',
            success: function (result) {
-
-            var anos=document.querySelector('#anos');
+            var envelope=document.querySelector('#envelope');
+  
             result.forEach((res) => {
-                var txtDiv = document.createTextNode(res.ano); // valor medido
+                var txtDiv = document.createTextNode(res.ano); 
+                var txtPeq="";
+                if(indicador==1){
+                    txtPeq = "Clientes conquistados"; 
+                }
+                if(indicador==2){
+                    txtPeq = "Ticket"; 
+                }
+                var txtIcon = document.createTextNode(txtPeq); 
                 var ano = document.createElement("div");
-                ano.appendChild(txtDiv);
-                ano.classList.add("ano1");
-                anos.appendChild(ano);
-                montaMeses(res.ano);
+                ano.setAttribute('style','width:100%;display:flex;flex-flow: row;border-radius: 5px;color: #010000;font-weight: bold;font-size: large;padding: 40px;justify-content: center;align-items: center;background-color:#3e2b2b00;margin-bottom: 5px;margin-right: 50px;');
+                var icon = document.createElement("div");
+                icon.setAttribute('style','display:flex;flex-flow:row; width;60px;backgroud-image : url('+"./img/qualidade.jpeg"+'); heght:60px; border 1px solid #red; border-radious:50px;margin-right:200px;font-size:36px;border-radius:6px;padding:15px');
+                icon.appendChild(txtIcon);
+                var esq = document.createElement("div");
+                esq.setAttribute('style','margin-right:200px;font-size:36px;display:flex;flex-flow:column;');
+                esq.setAttribute('id','tituloInd');
+                $("#tituloInd").html(txtPeq);
+ 
+                var pontinhos = document.createElement("div");
+                pontinhos.setAttribute('style','margin:0px;padding:0px;width:100%; height:60px;display:flex;flex-flow: row;color: #010000;font-weight: bold;font-size: 22px;padding: 0px;justify-content: center;align-items: center;');
+                
+                var ponto1 = document.createElement("div");
+                ponto1.setAttribute('style','display:flex;background-color:red;width:15px; height:60px;padding: 0px;');
+                var ponto2 = document.createElement("div");
+                ponto2.setAttribute('style','display:flex;background-color:red;width:15px; height:60px;padding: 0px;');
+                
+                pontinhos.appendChild(ponto1);
+                pontinhos.appendChild(ponto2);
+
+                //$("#tituloInd").html("<div style='background-color:red;width:50px;height:60px;padding: 0px;'></div>");
+                var dir = document.createElement("div");                
+                dir.setAttribute('style','margin-right:200px;font-size:36px');
+                dir.appendChild(txtDiv);
+                
+                ano.appendChild(icon);  
+                ano.appendChild(dir);
+                
+                envelope.appendChild(ano);
+
+              
+                montaMeses(res.ano,envelope,indicador);
+                
             });
            },
            error: function (error) {
@@ -128,13 +281,18 @@ function buscaAnos(){
            }
        });
 }
-buscaAnos();
+buscaAnos(1);
 
 // MONTAGEM INDICADORES
 
-function montaMeses(ano){
-
-     for (var i = 12; i>0;i--){ 
+function montaMeses(ano,envelope,indicador){
+    var tam=0;
+    var total = "";
+    var anoAtual=new Date().getFullYear();
+    if(ano==anoAtual){total = currentMonth }else{total=12};
+    
+     for (var i = total; i>0;i--){ 
+        tam=tam+1;
         var txtMes="";    
         if(i==1){txtMes="Janeiro"};if(i==2){txtMes="Fevereiro"};if(i==3){txtMes="Marco"};
         if(i==4){txtMes="Abril"};if(i==5){txtMes="Maio"};if(i==6){txtMes="Junho"};
@@ -142,6 +300,10 @@ function montaMeses(ano){
         if(i==10){txtMes="Outubro"};if(i==11){txtMes="Novembro"};if(i==12){txtMes="Dezembro"};
 
                             var nomeMes = document.createTextNode(txtMes);
+                            var link = document.createElement('button');
+                            link.appendChild(nomeMes)
+                            link.setAttribute('onClick','javascript:aumenta(document.getElementById(\'mes'+i+'\'))');
+                            
                             var meses = document.getElementById("meses");
                             // cria semanas
                             var semana1 = document.createElement("div");
@@ -149,22 +311,23 @@ function montaMeses(ano){
                             var semana3 = document.createElement("div");
                             var semana4 = document.createElement("div");
 
-                           
-                            semana1.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;');
+                            if(currentMonth){                           
+                            semana1.setAttribute('style','font-size:28px;background-color: #fff; display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;');
+                            }
                             semana1.classList.add("semana");
                             semana1.setAttribute('id','1_'+ano+'_'+i);
-                       
-                            semana2.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;');
+                        
+                            semana2.setAttribute('style','font-size: 28px;background-color: #fff;;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;');
                             semana2.classList.add("semana");
                             semana2.setAttribute('id','2_'+ano+'_'+i);
 
                            
-                            semana3.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;');
+                            semana3.setAttribute('style','font-size: 28px;background-color: #fff;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;');
                             semana3.classList.add("semana");
                             semana3.setAttribute('id','3_'+ano+'_'+i);
 
                         
-                            semana4.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:40%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;');
+                            semana4.setAttribute('style','font-size: 28px;background-color: #fff;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%;');
                             semana4.classList.add("semana");
                             semana4.setAttribute('id','4_'+ano+'_'+i);
 
@@ -173,676 +336,40 @@ function montaMeses(ano){
                             var ValorMes1 = document.createTextNode("");
                             var ValorMes2 = document.createTextNode("");
                             var ValorMes3 = document.createTextNode("");
-                            var ValorMes4 = document.createTextNode("");
-
-                            semanas = retornaValoresMes(ano,i);
+                                var ValorMes4 = document.createTextNode("");
+                            // ############################# CHAMA OS CONTROLLERS #############################
+                            
+                            if(indicador==1){     
+                                semanas = conquistados(ano,i);
+                            }
+                            if(indicador==2){     
+                                semanas = ticket(ano,i);
+                            }
                             // #############
 
                             semana1.appendChild(ValorMes1);
-                            semana1.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:95%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%')
                             semana2.appendChild(ValorMes2);
-                            semana2.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:95%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%')
                             semana3.appendChild(ValorMes3);
-                            semana3.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:95%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%')
                             semana4.appendChild(ValorMes4);
-                            semana4.setAttribute('style','font-size: 28px;background-image: url("./img/alertaLaranja.png");background-position:left;background-color: #ff914d45; background-repeat: no-repeat;background-size:95%;display: flex;justify-content: center; align-items: center; margin-left: 10px; width: 22%')
                             
                             var mesDiv = document.createElement("div");
-                            mesDiv.appendChild(nomeMes);
+                            mesDiv.appendChild(link);
                             mesDiv.setAttribute('style','display: flex; flex-flow: row;');
                             mesDiv.classList.add("mes1");
                             
                             var wrapperMes = document.createElement("div");
                             wrapperMes.setAttribute('style','display:flex; flex-flow: row');
+                            wrapperMes.setAttribute('id','mes'+i);
                             
                             wrapperMes.appendChild(mesDiv);
                             wrapperMes.appendChild(semana1);
                             wrapperMes.appendChild(semana2);
                             wrapperMes.appendChild(semana3);
                             wrapperMes.appendChild(semana4);
-                            meses.appendChild(wrapperMes);
+                            envelope.appendChild(wrapperMes);
      }
                    
 }
-
-function retornaValoresMes(ano,mes){
-    $.ajax({
-           url: "http://localhost:8000/api/omie/oportunidade/cliente-conquistado",
-           type: 'POST',
-           dataType: 'json',
-           headers: {
-               'Accept': 'application/json'
-           },
-           data: JSON.stringify({"ano":ano,"mes":mes}),
-           contentType: 'application/json; charset=utf-8',
-           success: function (result) {
-           var anos=document.querySelector('#anos');
-           
-
-            for(var i=0;i<result.length;i++) {
-                var txtDiv = document.createTextNode(result[i].regSemana); // valor medido
-                // var ano = document.createElement("div");
-                // ano.appendChild(txtDiv);
-                // ano.classList.add("ano1");
-                // anos.appendChild(ano);
-                if(document.getElementById(parseInt(i+1)+'_'+ano+'_'+mes)!=null){
-                    document.getElementById(parseInt(i+1)+'_'+ano+'_'+mes).appendChild(txtDiv);
-                }
-            };
-           },
-           error: function (error) {
-               console.log(error);
-           }
-    });
-}
-
-// MONTAGEM CONTAINERES SETORES
-//Função para extrair dia da data
-function pegaDia(days){
-     return String(days.getDate()).padStart(2, '0');
-}
-
-
-// DIA INICIAL DA PRODUÇÃO
-// var data = new Date(producaoJson.inicio);
-var dia = pegaDia(data);
-
-// HOJE
-var hoje = new Date();
-var nrDiahoje = pegaDia(hoje);
-
-
-//DIA LIMITE DIREITO - Hoje + 12
-var diaLimDir = new Date(hoje.setDate(hoje.getDate() + 12));
-var nrDiaLimDir = pegaDia(diaLimDir);
-
-hoje = new Date();
-//DIA LIMITE Esquerdo - Hoje - 12
-var diaLimEsq = new Date(hoje.setDate(hoje.getDate()-12));
-var nrDiaLimEsq = pegaDia(diaLimEsq);
-
-
-var containerDias = document.querySelector('#dias');
-
-// Cria array de datas anteriores a hoje
-var dates = [];
-var hoje = new Date();
-const quant = Math.floor((hoje - diaLimEsq) / (1000 * 60 * 60 * 24));
-for(i=0; i<quant ;i++){
-    dates.push(diaLimEsq.setDate(diaLimEsq.getDate() + 1));
-}
-// Cria array de datas posteriores a hoje
-
-var proximas = [];
-var hoje = new Date();
-
-const quantProximas = Math.floor((diaLimDir-hoje) / (1000 * 60 * 60 * 24));
-for(i=0; i<quantProximas ;i++){
-    proximas.push(hoje.setDate(hoje.getDate() + 1));
-}
-
-// console.log("Tamanho dates: "+dates.length);
-//Insere na barra de datas da data atual - 12dias até hoje 
-
-dates.forEach((element) => {
-    var cadaDia = document.createElement("div");
-    var diaMes =new Date(element);
-    diaMes = diaMes.getDate();
-    cadaDia.innerHTML=diaMes;
-    cadaDia.classList.add("dia");
-    cadaDia.setAttribute('style','margin-left: 10px" >13</div><div style="margin-top: 30px; height: 0px; width:30px;margin-left: -15px;margin-right:-30px;');
-    containerDias.appendChild(cadaDia);
-});
-// //Insere na barra de datas da data de hoje até 12 para frente 
-
-proximas.forEach((element) => {
-    var cadaDia = document.createElement("div");
-    var diaMes =new Date(element);
-    diaMes = diaMes.getDate();
-    cadaDia.innerHTML=diaMes;
-    cadaDia.classList.add("diaOn");
-    cadaDia.setAttribute('style','margin-left: 10px" >13</div><div style="margin-top: 30px; height: 0px; width:30px;margin-left: -15px;margin-right:-30px;');
-    containerDias.appendChild(cadaDia);
-});
- // Cabeçalho
-
-// INICIA A MONTAGEM DOS DESENHOS DAS SEÇÕES
-
-function carregaSecoes(op){
-    var arrResults = new Array();
-	$.ajax({
-            url: "http://127.0.0.1:8000/api/prod/"+op+"/setores",
-            type: 'GET',
-            dataType: 'json',
-            headers: {
-                'Accept': 'application/json'
-            },
-            contentType: 'application/json; charset=utf-8',
-            success: function (result) {
-            
-            for(var i=1; i<result.length; i++){
-              // console.log(result[i].id);
-                
-                var txtContainerL = document.createTextNode(secoesJson.containers[i-1].qtInicio);
-                    var txtContainerR = document.createTextNode(secoesJson.containers[i-1].qtFim);
-                    var txtBase = result[i].nome;   
-                    var ladoL = document.createElement("div");
-                    var ladoR = document.createElement("div");
-                    var base = document.createElement("div");
-                    var wraper = document.createElement("div");
-                    var wraper0 = document.createElement("div");
-                    var producao = document.getElementById("producao");
-
-                    var progresso = document.querySelector('#progresso');
-                    //var proComplementar = 100 - result.producoes[0].progresso;
-
-                    //    COLOCA TEXTO DA BASE
-                    ladoL.appendChild(txtContainerL);
-                    ladoR.appendChild(txtContainerR);
-                    wraper.appendChild(ladoL);
-                    wraper.appendChild(ladoR);
-
-                    wraper0.appendChild(wraper);
-                    wraper0.appendChild(base);
-                    producao.appendChild(wraper0);
-          
-                    producao.setAttribute('style','justify-content: space-between');
-                    wraper0.setAttribute('style','height:90%;padding: 0px;display: flex;flex-flow:column wrap;width:160px;margin-bottom:0px;border: 2px solid #3571CD;border-radius: 0px;border-top-left-radius:10px;0px;border-top-right-radius:10px');
-                    wraper.setAttribute('style','display: flex;flex-flow:row;height:70%;border-top-left-radius:10px;0px;border-top-right-radius:10px');
-                    base.setAttribute('style','width:100%;border: 1px solid #3571CD;padding: 10px;height:30%;');
-                    ladoL.setAttribute('id','ladoL'+eval(+result[i].id));
-                    ladoR.setAttribute('id','ladoR'+eval(+result[i].id));
-                    base.innerHTML='<h2>' + txtBase +'</h1>';
-                    alteraSecao(op,result[i].id);
-                    
-            }
-           // $('#divProduca').html(q);
-                // $('#name').text(name);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-}
-
-carregaSecoes(variavel);
-
-
-function alteraSecao(op,setor){
-    var arrResults = new Array();
-	$.ajax({
-            url: "http://127.0.0.1:8000/api/prod/painel/desempenho",
-            type: 'POST',
-            dataType: 'json',
-            headers: {
-                'Accept': 'application/json'
-            },
-            data: JSON.stringify({"idSetor":setor,"idProducao":op}),
-            contentType: 'application/json; charset=utf-8',
-            success: function (result) {
-
-                   // console.log(result);
-
-                    prev=parseInt(result.svPrevistos);
-                    exec=parseInt(result.svExecutados);
-                        
-                    let quantiPercentIni=100;
-                    let quantiPercentFim=(exec*100)/prev;
-
-               
-                        if(exec == prev){ //já concluiu
-                            $("#ladoL"+eval(setor)).attr('style','background-color: #63e57d20; width:50%;height:auto;padding-top:30px;border-top-left-radius:10px;width:50%;height:auto');
-                            $("#ladoR"+eval(setor)).attr('style','background-color: #63e57d20; width:50%;height:auto;padding-top:30px;border: 1px solid #3571CD;border-top-right-radius:10px;');
-                            //console.log("Setor: "+setor+" Executados: "+prev+" Previstos: "+ exec+" já concluiu");
-                        }
-                        if(exec > prev){ //já concluiu
-                            $("#ladoL"+eval(setor)).attr('style','background-color: #63e57d20; width:50%;height:auto;padding-top:30px;border-top-left-radius:10px;width:50%;height:auto');
-                            $("#ladoR"+eval(setor)).attr('style','color:red;background-color: #63e57d20; width:50%;height:auto;padding-top:30px;border: 1px solid #3571CD;border-top-right-radius:10px;');
-                            //console.log("Setor: "+setor+" Executados: "+prev+" Previstos: "+ exec+" já concluiu");
-                        }
-                        if(exec == 0){// Nem começou
-                            $("#ladoL"+eval(setor)).attr('style','background-color: #3739375b;border-top-left-radius:10px;width:100%;height:auto;padding-top:40px;');
-                            $("#ladoR"+eval(setor)).attr('style','background-color: #3739375b;border-top-left-radius:10px;width:100%;height:auto;padding-top:40px;');
-                            //console.log("Setor: "+setor+" Executados: "+prev+" Previstos: "+ exec+" não começou");
-                        }
-                        if((exec > 0) && (exec < prev)){//começou mas não acabou
-                            $("#ladoL"+eval(setor)).attr('style','color: red;background-image: url("./img/conclusao.png");background-position: bottom;background-color: #FF914D; background-repeat: no-repeat;background-size: 80px '+quantiPercentIni+'%;width:50%;height:auto;padding-top:30px;border-top-left-radius:10px;');
-                            $("#ladoR"+eval(setor)).attr('style','background-image: url("./img/conclusao.png");background-position: bottom;background-color: #FF914D; background-repeat: no-repeat;background-size: 80px '+quantiPercentFim +'%;width:50%;height:auto;padding-top:30px;border: 1px solid #3571CD;border-top-right-radius:10px;');
-                            //console.log("Setor: "+setor+" Executados: "+prev+" Previstos: "+exec+" Em andamento");
-                        }
-
-                        $("#ladoR"+eval(setor)).html(exec);
-                        $("#ladoL"+eval(setor)).html(prev);
-        
-             
-                // $('#name').text(name);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    
-}
-
-// ########### MUDA PARA HORAS #############################
-
-function carregaSecoesHoras(op){
-    var arrResults = new Array();
-	$.ajax({
-            url: "http://127.0.0.1:8000/api/prod/"+op+"/setores",
-            type: 'GET',
-            dataType: 'json',
-            headers: {
-                'Accept': 'application/json'
-            },
-            contentType: 'application/json; charset=utf-8',
-            success: function (result) {
-            
-            
-            for(var i=1; i<result.length; i++){
-               // console.log(result[i].id);
-                alteraSecaoHoras(op,result[i].id);
-                    
-            }
-           // $('#divProduca').html(q);
-                // $('#name').text(name);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-}
-
-
-function alteraSecaoHoras(op,setor){
-    var arrResults = new Array();
-	$.ajax({
-            url: "http://127.0.0.1:8000/api/prod/painel/desempenho",
-            type: 'POST',
-            dataType: 'json',
-            headers: {
-                'Accept': 'application/json'
-            },
-            data: JSON.stringify({"idSetor":setor,"idProducao":op}),
-            contentType: 'application/json; charset=utf-8',
-            success: function (result) {
-                    //console.log(result);
-
-                    prev=parseInt(result.horasPrevistas);
-                    exec=parseInt(result.horasTrab);
-
-                    let quantiPercentIni=100;
-                    let quantiPercentFim=(exec*100)/prev;
-
-               
-                        if(exec >= prev){ //já concluiu
-                            $("#ladoL"+eval(setor)).attr('style','background-color: #63e57d20; width:50%;height:auto;padding-top:30px;border-top-left-radius:10px;width:50%;height:auto');
-                            $("#ladoR"+eval(setor)).attr('style','background-color: #63e57d20; width:50%;height:auto;padding-top:30px;border: 1px solid #3571CD;border-top-right-radius:10px;');
-                           // console.log("Setor: "+setor+" Executados: "+prev+" Previstos: "+ exec+" já concluiu");
-                        }
-                        if(exec == 0){// Nem começou
-                            $("#ladoL"+eval(setor)).attr('style','background-color: #3739375b;border-top-left-radius:10px;width:100%;height:auto;padding-top:40px;');
-                            $("#ladoR"+eval(setor)).attr('style','background-color: #3739375b;border-top-left-radius:10px;width:100%;height:auto;padding-top:40px;');
-                            //console.log("Setor: "+setor+" Executados: "+prev+" Previstos: "+ exec+" não começou");
-                        }
-                        if((exec > 0) && (exec < prev)){//começou mas não acabou
-
-                            $("#ladoL"+eval(setor)).attr('style','background-image: url("./img/conclusao.png");background-position: bottom;background-color: #FF914D; background-repeat: no-repeat;background-size: 80px '+quantiPercentIni+'%;width:50%;height:auto;padding-top:30px;border-top-left-radius:10px;');
-                            $("#ladoR"+eval(setor)).attr('style','background-image: url("./img/conclusao.png");background-position: bottom;background-color: #FF914D; background-repeat: no-repeat;background-size: 80px '+quantiPercentFim +'%;width:50%;height:auto;padding-top:30px;border: 1px solid #3571CD;border-top-right-radius:10px;');
-                           // console.log("Setor: "+setor+" Executados: "+prev+" Previstos: "+exec+" Em andamento");
-                        }
-                        exec=exec+"h";
-                        prev=prev+"h";
-                        $("#ladoR"+eval(setor)).html(exec);
-                        $("#ladoL"+eval(setor)).html(prev);
-        
-             
-                // $('#name').text(name);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    
-}
-
-function RecarregaSecoes(op){
-    var arrResults = new Array();
-	$.ajax({
-            url: "http://127.0.0.1:8000/api/prod/"+op+"/setores",
-            type: 'GET',
-            dataType: 'json',
-            headers: {
-                'Accept': 'application/json'
-            },
-            contentType: 'application/json; charset=utf-8',
-            success: function (result) {
-            
-                
-            let quantSetor = secoesJson.containers.length;
-            
-            for(var i=1; i<result.length; i++){
-
-                alteraSecao(op,result[i].id);
-                    
-            }
-           // $('#divProduca').html(q);
-                // $('#name').text(name);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-}
-
-function barraProgressoHoras(op){
-    var arrResults = new Array();
-	$.ajax({
-            url: "http://127.0.0.1:8000/api/prod/"+op+"/percent",
-            type: 'GET',
-            dataType: 'json',
-            headers: {
-                'Accept': 'application/json'
-            },
-            contentType: 'application/json; charset=utf-8',
-            success: function (result) {
-
-                let progresso =document.querySelector('#progresso');
-                let horasGastas = result.percentualHorasGastas;
-                progresso.innerHTML='<h1> '+horasGastas+'% </h1>';
-                if(horasGastas<200){
-                    progresso.setAttribute('style','color: white; background-image: url("./img/progresso.png");background-repeat: no-repeat;background-position:bottom;background-size:40px '+horasGastas/2+'%;height: 100px; width: 40px;padding-left: 0px;padding-right: 0px;padding-top:10px;padding-bottom:200px;margin-top: 0px;margin-bottom: 0px;');
-                }else{
-                    progresso.setAttribute('style','color: white; background-image: url("./img/progressoBlack.png");background-repeat: no-repeat;background-position:bottom;background-size:40px '+horasGastas/2+'%;height: 100px; width: 40px;padding-left: 0px;padding-right: 0px;padding-top:10px;padding-bottom:200px;margin-top: 0px;margin-bottom: 0px;');
-                }
-           // $('#divProduca').html(q);
-                // $('#name').text(name);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-}
-
-barraProgressoHoras(variavel);
-
-// FIM MONTAGEM CONTAINERS
-
-// ################   GRAFICO HORAS DE TRABALHO
-
-function montaBarrasHoras(op){
-	$.ajax({
-            url: "http://127.0.0.1:8000/api/prod/"+op+"/setores",
-            type: 'GET',
-            dataType: 'json',
-            headers: {
-                'Accept': 'application/json'
-            },
-            contentType: 'application/json; charset=utf-8',
-            success: function (result) {
-            console.log(result);
-            let ultimoFinal=0;
-
-            for(var i=1; i<result.length; i++){
-                let id='#setor'+eval(+i);
-                document.querySelector(id).innerHTML=result[i].nome;
-                // TO DO: subtrair uma data da outra em dias para fazer o tamanho da barra
-                document.querySelector(id).setAttribute('style','width:'+(tam)+'px');
-                
-            }
-           // $('#divProduca').html(q);
-                // $('#name').text(name);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
- }
- montaBarrasHoras(variavel);
- // include service ->  json secoesJson
-
-let ultimoFinal=0;
-for(var i=1; i<7; i++){// roda as seis setores, ou seja, uma linha  
-    let setorx  = json.setores[i-1].inicio;
-     if(setorx >= ultimoFinal){ 
-         //se o valor inicial desse setor for maior que o final do anterior 
-            let tam = (json.setores[i-1].fim) - (json.setores[i-1].inicio);
-            let id='#setor'+eval(+i);
-           
-           
-            ultimoFinal = json.setores[i-1].fim;
-      }
-       else{
-            let tam = (json.setores[i-1].fim) - (json.setores[i-1].inicio);
-             let id='#setor'+eval(+i);
-             let classe='setor'+eval(+i);
-             document.querySelector(id).remove();
-             // ultimoFinal = json.setores[i-1].fim;
-            var divNova = document.createElement("div");
-            var conteudoNovo = document.createTextNode(json.setores[i-1].label);
-            divNova.appendChild(conteudoNovo); 
-            // adiciona o novo elemento criado e seu conteúdo ao DOM
-            var linha2 = document.getElementById("linha2");
-            linha2.appendChild(divNova,linha2.nextSibling);
-            divNova.classList.add(classe);
-            var inicioSetor = json.setores[i-1].inicio - json.setores[0].inicio
-            divNova.setAttribute('style','width:'+(tam)+'px;margin-left:'+inicioSetor+'px');
-      }
-}
-
-// ##################   GRÁFICO DIAS DECORRIDOS
-
-// include service ->  json secoesJson
-
-ultimoFinal=0;
-for(var i=7; i<13; i++){// roda as seis setores, ou seja, uma linha  
-    let setorx  = jsonDias.setores[i-7].inicio;
-        if(setorx >= ultimoFinal){ 
-        let tam = (jsonDias.setores[i-7].fim) - (jsonDias.setores[i-7].inicio);
-            let id='#setor'+eval(+i);
-            document.querySelector(id).setAttribute('style','width:'+(tam)+'px;');
-            document.querySelector(id).innerHTML=jsonDias.setores[i-7].label;
-            ultimoFinal = jsonDias.setores[i-7].fim;
-   }
-       else{
-           let tam = (jsonDias.setores[i-7].fim) - (jsonDias.setores[i-7].inicio);
-           let id='#setor'+eval(+i);
-           let classe='setor'+eval(+i);
-           document.querySelector(id).remove();
-           var divNova = document.createElement("div");
-           var conteudoNovo = document.createTextNode(jsonDias.setores[i-7].label);
-           divNova.appendChild(conteudoNovo); 
-           var linha2b = document.getElementById("linha2b");
-           linha2b.appendChild(divNova,linha2b.nextSibling);
-           divNova.classList.add(classe);
-           var inicioSetor = jsonDias.setores[i-7].inicio - jsonDias.setores[0].inicio
-           divNova.setAttribute('style','width:'+(tam)+'px;margin-left:'+inicioSetor+'px');
-      }
-}
-    ''
-    // ########### mostra insumo ############
-    // function config() {
-    //     var el = document.getElementById("palet1l");
-    //     el.addEventListener("click", abreInsumos, false);
-    // }
-
-    // document.addEventListener("DOMContentLoaded", config, false);
-
-    // function abreInsumos(){
-    //         var e = document.getElementById("palet1l");
-    //         document.getElementById('insumos').style.display='block';
-    // }
-    // document.addEventListener('mouseup', function(e) {
-    //     var container = document.getElementById('palet1l');
-    //     if (!container.contains(e.target)) {
-    //         document.getElementById('insumos').style.display = 'none';
-    //     }
-    // });
-    // ##########################
-    function mostraGrafico() {
-        var el = document.getElementById("combo1");
-        el.addEventListener("click", abreGrafico, true);
-    }
-    document.addEventListener("DOMContentLoaded", mostraGrafico, false);
-    function abreGrafico(){
-        if(document.getElementById('grafico1').style.display=='none'){
-            document.getElementById('grafico1').style.display='block';
-            document.getElementById('grafico2').style.display='none';
-        }else{
-            document.getElementById('grafico1').style.display='none';
-        }
-    }
-    // ##################
-    function mostraIndicadorUm() {
-        var el = document.getElementById("baseUm");
-        el.addEventListener("click", exibeIndicador, true);
-    }
-    function exibeIndicador(){
-        if(document.getElementById('boxIndicador').style.visibility=='hidden'){
-            document.getElementById('boxIndicador').style.visibility='visible';
-         }else{
-             document.getElementById('boxIndicador').style.visibility='hidden';
-        }
-    }
-    document.addEventListener("DOMContentLoaded", mostraIndicadorUm, false);
-    
-
-
-
-    // ##########################
-    function mostraGrafico2() {
-        var el = document.getElementById("combo2");
-        el.addEventListener("click", abreGrafico2, true);
-    }
-    document.addEventListener("DOMContentLoaded", mostraGrafico2, false);
-    function abreGrafico2(){
-        if(document.getElementById('grafico2').style.display=='none'){
-            document.getElementById('grafico2').style.display='block';
-            document.getElementById('grafico1').style.display='none';
-        }else{
-            document.getElementById('grafico2').style.display='none';
-        }
-    }
-    // ##################
-    
-    function fecha(){
-        document.getElementById('papel-vegetal').style.display='none';
-        document.getElementById('dt-card0').style.display='none';
-    }
-    function abre(){
-            document.getElementById('dt-card0').style.display='block';
-            document.getElementById('papel-vegetal').style.display='block';
-    }
-    function troca(){
-        if(document.getElementById('trab2').style.display=='block'){
-            document.getElementById('trab2').style.display='none';
-            document.getElementById('trab1').style.display='block';
-        }else{
-            document.getElementById('trab2').style.display='block'; 
-            document.getElementById('trab1').style.display='none';
-        }
-    }
-    function mudaEstadoPalet(alvo,classe,classe1,tipo){
-
-        document.getElementById('txtAlmox').style.visibility='hidden';
-        document.getElementById('txtIdC').style.visibility='hidden';
-        document.getElementById('txtId').style.visibility='hidden';
-        document.getElementById('txtMecC').style.visibility='hidden';
-        document.getElementById('txtMec').style.visibility='hidden';
-        document.getElementById('txtEletricaC').style.visibility='hidden';
-        document.getElementById('txtEletrica').style.visibility='hidden';
-        document.getElementById('txtFimC').style.visibility='hidden';
-        document.getElementById('txtFim').style.visibility='hidden';
-        document.getElementById('txtExpeC').style.visibility='hidden';
-        document.getElementById('txtExpe').style.visibility='hidden';
-        document.getElementById('alerta1').style.visibility='hidden';
-        document.getElementById('alerta2').style.visibility='hidden';
-        document.getElementById('alerta3').style.visibility='hidden';
-        document.getElementById('alerta4').style.visibility='hidden';
-        document.getElementById('alerta5').style.visibility='hidden';
-        document.getElementById('alerta6').style.visibility='hidden';
-
-
-        document.getElementById('palet1l').className='reseta';
-        document.getElementById('palet2l').className='reseta';
-        document.getElementById('palet3l').className='reseta';
-        document.getElementById('palet4l').className='reseta';
-        document.getElementById('palet5l').className='reseta';
-        document.getElementById('palet6l').className='reseta';
-
-        if(alvo=='palet1r'){
-            if(tipo=='1'){
-                document.getElementById('txtAlmox').style.visibility='visible';
-            }else{
-                document.getElementById('txtAlmox').style.visibility='visible';
-                document.getElementById('alerta1').style.visibility='visible';
-                document.getElementById('palet6r').className='reseta';
-            }
-        }
-        if(alvo=='palet2r'){
-            if(tipo=='1'){
-                document.getElementById('txtId').style.visibility='visible';
-            }else{
-                document.getElementById('txtIdC').style.visibility='visible';
-                document.getElementById('txtId').style.visibility='visible';
-                // document.getElementById('alerta2').style.visibility='visible';
-                document.getElementById('palet1r').className='reseta';
-                document.getElementById('palet2l').className=classe1;
-            }
-            
-        }
-        if(alvo=='palet3r'){
-            if(tipo=='1'){
-                document.getElementById('txtMec').style.visibility='visible';
-            }else{
-                document.getElementById('txtMecC').style.visibility='visible';
-                document.getElementById('txtMec').style.visibility='visible';
-                // document.getElementById('alerta3').style.visibility='visible';
-                document.getElementById('palet2r').className='reseta';
-                document.getElementById('palet3l').className=classe1;
-            }
-            
-        }
-        if(alvo=='palet4r'){
-            if(tipo=='1'){
-                document.getElementById('txtEletrica').style.visibility='visible';
-            }else{
-                document.getElementById('txtEletricaC').style.visibility='visible';
-                document.getElementById('txtEletrica').style.visibility='visible';
-                // document.getElementById('alerta4').style.visibility='visible';
-                document.getElementById('palet3r').className='reseta';
-                document.getElementById('palet4l').className=classe1;
-            }
-            
-        }
-        if(alvo=='palet5r'){
-            if(tipo=='1'){
-                document.getElementById('txtFim').style.visibility='visible';
-            }else{
-                document.getElementById('txtFimC').style.visibility='visible';
-                document.getElementById('txtFim').style.visibility='visible';
-                // document.getElementById('alerta5').style.visibility='visible';
-                document.getElementById('palet4r').className='reseta';
-                document.getElementById('palet5l').className=classe1;
-            }
-            
-        }
-        if(alvo=='palet6r'){
-            if(tipo=='1'){
-                document.getElementById('txtExpe').style.visibility='visible';
-            }else{
-                document.getElementById('txtExpeC').style.visibility='visible';
-                document.getElementById('txtExpe').style.visibility='visible';
-
-                document.getElementById('palet5r').className='reseta';
-                document.getElementById('palet6l').className=classe1;
-            }
-            
-        }
-        document.getElementById(alvo).className=classe;
-        
-    }
-
  </script>
     
 

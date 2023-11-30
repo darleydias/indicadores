@@ -1,10 +1,10 @@
         :root{
-                --cor-bg-medio: rgba(0,0,0,.8);
-                --cor-bg-claro: rgba(0,0,0,.15);
-                --cor-bg-escuro: rgba(0,0,0,.5);
+                --cor-bg-medio: #DEDFDF;
+                --cor-bg-claro: #DEDFDF;
+                --cor-bg-escuro: #DEDFDF;
                 --cor-bg-preto: rgba(0,0,0,1);
                 --cor-texto-servico:rgba(255,255,255,1);
-                --cor-bg-fundo:rgba(43,50,72,1);
+                --cor-bg-fundo:rgba(220, 222, 228, 0.925);
                 --cor-ln-amarelo: #ffd20c;
                 --cor-bola-tempo:rgb(60, 91, 101,1);
 
